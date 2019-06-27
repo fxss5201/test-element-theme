@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/test-element-theme/favicon.ico><title>test-element-theme</title><link href=/test-element-theme/js/about.a64bbd0c.js rel=prefetch><link href=/test-element-theme/css/app.9728d331.css rel=preload as=style><link href=/test-element-theme/js/app.7d4ffa7e.js rel=preload as=script><link href=/test-element-theme/js/chunk-vendors.733add58.js rel=preload as=script><link href=/test-element-theme/css/app.9728d331.css rel=stylesheet></head><body><noscript><strong>We're sorry but test-element-theme doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><link rel=stylesheet id=themeLink href=""><script>let environmental = 'production'
+      let themeLink = document.querySelector('#themeLink')
+      // 本例子通过修改 location.search 中的 theme 来进行切换主题色
+      function getSearchArgs () {
+        let args = {}
+        let query = location.search.substring(1)
+        let pairs = query.split("&")
+        for (let i = 0;i < pairs.length; i++) {
+          let pos = pairs[i].indexOf("=")
+          if(pos == -1) continue
+          let name = pairs[i].substring(0, pos)
+          let value = pairs[i].substring(pos + 1)
+          value = decodeURIComponent(value)
+          args[name] = value
+        }
+        return args
+      }
+      let currentTheme = getSearchArgs().theme
+      if (environmental === 'production') {
+        themeLink.href = '/test-element-theme/theme/' + currentTheme + '.min.css'
+      }</script><script src=/test-element-theme/js/chunk-vendors.733add58.js></script><script src=/test-element-theme/js/app.7d4ffa7e.js></script></body></html>
