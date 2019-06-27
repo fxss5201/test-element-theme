@@ -4,11 +4,17 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "gulp build && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "creat-theme": "et -i ./themeCode/element-variables-red.scss",
+    "serve-red-theme": "et --watch --config ./themeCode/element-variables-red.scss --out ./theme/red",
+    "watch": "gulp watch"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "element-ui": "^2.10.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
@@ -19,8 +25,14 @@
     "@vue/cli-service": "^3.8.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "element-theme": "^2.0.1",
+    "element-theme-chalk": "^2.10.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
