@@ -34,7 +34,9 @@
       }
       let currentTheme = getSearchArgs().theme
       if (environmental === 'production') {
-        themeLink.href = '<%= BASE_URL %>theme/' + currentTheme + '.min.css'
+        if (currentTheme) {
+          themeLink.href = '<%= BASE_URL %>theme/' + currentTheme + '.min.css'
+        }
       }
     </script>
   </body>

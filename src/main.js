@@ -7,7 +7,6 @@ import store from './store'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-console.log(process.env.NODE_ENV)
 
 new Vue({
   router,
