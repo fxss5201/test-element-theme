@@ -38,9 +38,31 @@ npm run build
 4. `gulp watch` 观察对应的文件修改，并及时编译（需要确保对应的文件存在）。
 5. 在 `src/main.js` 中引入文件 `import '../theme/red/index.min.css'`。
 
+开发环境中为了提高实时编译速度，可以对 `gulpfile.js` 中的部分代码进行注释（第59行的 `watch` ），比如当前调试的是 `red` 主题色，则可以将 `blue/green` 注释掉，例如：
+
+```javascript
+gulp.task('watch', function () {
+  gulp.watch(['./theme/**/index.css', 'src/style/*.less'], gulp.parallel(
+    gulp.series(buildRed, concatRed),
+    // gulp.series(buildBlue, concatBlue),
+    // gulp.series(buildGreen, concatGreen)
+  ))
+})
+```
+
 ### 正式环境 ###
 
 1. 可以直接 `gulp build && vue-cli-service build` ，不过要确保需要的文件存在。
+
+打包的时候如果没有 `blue/green` 主题色的时候，可以将 `gulpfile.js` 第91行的 `build` 中的对应代码注释，例如：
+
+```javascript
+gulp.task('build', gulp.parallel(
+  gulp.series(buildRed, concatRed, moveFontsFile, moveRedFile),
+  // gulp.series(buildBlue, concatBlue, moveBlueFile),
+  // gulp.series(buildGreen, concatGreen, moveGreenFile))
+)
+```
 
 打包的时候可以将 `src/main.js` 中 `import '../theme/red/index.min.css'` 去除，也可以保留作为默认主题色。
 
