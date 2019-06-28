@@ -1,6 +1,13 @@
 .DS_Store
 node_modules
 /dist
+/theme/**/*.css
+!/theme/*/index.css
+!/theme/*/red.css
+!/theme/*/blue.css
+!/theme/*/green.css
+!/theme/*/*.min.css
+
 
 # local env files
 .env.local
