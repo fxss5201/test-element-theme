@@ -48,7 +48,7 @@ const needWatcher = 'green'
 
 ### 正式环境 ###
 
-现在的开发模式不支持直接 `gulp build && vue-cli-service build` ，必须通过 `gulp watch` 更改之后，才可以 `gulp build && vue-cli-service build` 。
+发布前先 `gulp build` 主题色文件，然后再 `vue-cli-service build` 项目代码，当然也可以把前两步合并在一起 `gulp build && vue-cli-service build` ，不过这样每次打包时间都比较长。
 
 打包的时候如果没有 `blue/green` 主题色的时候，可以将 `gulpfile.js` 第69行的 `let move_path = ['red', 'green', 'blue']` 中的对应代码删除，例如：
 
